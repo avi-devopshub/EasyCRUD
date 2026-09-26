@@ -99,7 +99,7 @@ resource "aws_eks_node_group" "nodegroup" { // EKS Node Group resource
   node_role_arn   = aws_iam_role.node_role.arn // IAM role for the node group
   subnet_ids      = data.aws_subnets.default.ids  // Use all subnets in the default VPC
 
-  instance_types = ["c7i-flex.large"]  // Instance type for the worker nodes
+  instance_types = ["t3.medium"]  // Instance type for the worker nodes
 
   scaling_config {
     desired_size = 2
