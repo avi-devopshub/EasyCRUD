@@ -4,6 +4,7 @@ metadata:
   name: backend-svc
   labels: 
     app: backend
+  namespace: student
 spec: 
   type: ClusterIP
   selector: 

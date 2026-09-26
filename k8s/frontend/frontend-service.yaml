@@ -4,6 +4,7 @@ metadata:
   name: frontend-svc
   labels: 
     app: frontend
+  namespace: student
 spec: 
   type: ClusterIP
   selector: 

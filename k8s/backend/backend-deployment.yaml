@@ -3,7 +3,8 @@ kind: Deployment
 metadata: 
   name: backend-deployment 
   labels: 
-    app: backend 
+    app: backend
+  namespace: student
 
 spec: 
   replicas: 2

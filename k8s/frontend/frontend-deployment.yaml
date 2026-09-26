@@ -4,6 +4,7 @@ metadata:
   name: frontend-deployment 
   labels: 
     app: frontend 
+  namespace: student
 
 spec: 
   replicas: 2
