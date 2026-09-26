@@ -5,7 +5,7 @@ metadata:
   namespace: student
 
 spec:
-  project: default
+  project: student
 
   source:
     repoURL: https://github.com/avi-devopshub/EasyCRUD.git
