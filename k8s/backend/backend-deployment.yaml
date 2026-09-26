@@ -22,7 +22,7 @@ spec:
     spec: 
       containers: 
         - name: backend-container
-          image: 822920903800.dkr.ecr.us-west-2.amazonaws.com/backend:14
+          image: 554663574879.dkr.ecr.ap-south-2.amazonaws.com/easycrud-backend:4
           ports: 
             - containerPort: 8080
         
