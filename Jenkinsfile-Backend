@@ -148,7 +148,7 @@ pipeline {
 
                         git add k8s/backend/backend-deployment.yaml
                         git commit -m "Update backend-deployment"
-                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/mayurpandit25/EasyCRUD.git HEAD:main
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/avi-devopshub/EasyCRUD.git HEAD:main
                     '''
                 }
             }
