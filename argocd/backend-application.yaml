@@ -3,7 +3,7 @@ kind: Application
 
 metadata:
   name: easycrud-backend
-  namespace: argocd
+  namespace: student
 
 spec:
   project: default
@@ -15,7 +15,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: student
 
   syncPolicy:
     automated:
