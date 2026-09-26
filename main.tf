@@ -2,9 +2,9 @@
 
 terraform {
   backend "s3" {
-    bucket = "mayurcbz.com"
+    bucket = "avidevops.fun"
     key    = "eks/terraform.tfstate"
-    region = "us-west-2"
+    region = "ap-south-2"
   }
 
   required_version = ">= 1.3"
@@ -17,7 +17,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-south-2"
 }
 
 data "aws_vpc" "default" { // Fetch default VPC
@@ -103,8 +103,8 @@ resource "aws_eks_node_group" "nodegroup" { // EKS Node Group resource
 
   scaling_config {
     desired_size = 2
-    min_size     = 1
-    max_size     = 3
+    min_size     = 2
+    max_size     = 4
   }
 
   depends_on = [
