@@ -22,7 +22,7 @@ spec:
     spec: 
       containers: 
         - name: frontend-container
-          image: 554663574879.dkr.ecr.ap-south-2.amazonaws.com/easycrud-frontend:8
+          image: 554663574879.dkr.ecr.ap-south-2.amazonaws.com/easycrud-frontend:9
           ports: 
             - containerPort: 80
         
