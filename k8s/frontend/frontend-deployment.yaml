@@ -22,7 +22,7 @@ spec:
     spec: 
       containers: 
         - name: frontend-container
-          image: nginx:latest
+          image: 554663574879.dkr.ecr.ap-south-2.amazonaws.com/easycrud-frontend:1
           ports: 
             - containerPort: 80
         
