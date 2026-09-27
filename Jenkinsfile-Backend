@@ -64,6 +64,7 @@ pipeline {
                 credentialsId: 'token-sonar'
             ) {
                 sh '''
+                    SONAR_TOKEN="$SONAR_AUTH_TOKEN" \
                     mvn sonar:sonar \
                     -Dsonar.projectKey=EasyCRUD
                 '''
