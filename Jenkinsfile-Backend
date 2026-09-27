@@ -65,13 +65,11 @@ pipeline {
             )
         ]) {
             sh '''
-                if [ -z "$SONAR_TOKEN" ]; then
-                    echo "SONAR_TOKEN is EMPTY"
-                    exit 1
-                else
-                    echo "SONAR_TOKEN is PRESENT"
-                fi
-            '''
+                mvn clean verify sonar:sonar \
+                     -Dsonar.projectKey=EasyCRUD \
+                     -Dsonar.host.url=http://18.60.129.60:9000 \
+                     -Dsonar.login=sqp_0c018c687ba776344e45454039a07e5547ce1791
+                '''
         }
     }
 }
