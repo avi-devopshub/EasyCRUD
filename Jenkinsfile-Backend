@@ -65,6 +65,8 @@ pipeline {
             )
         ]) {
             sh '''
+                pwd
+                ls
                 mvn clean verify sonar:sonar \
                      -Dsonar.projectKey=EasyCRUD \
                      -Dsonar.host.url=http://18.60.129.60:9000 \
