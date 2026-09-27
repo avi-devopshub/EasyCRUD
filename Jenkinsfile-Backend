@@ -56,29 +56,15 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-    steps {
-        dir('backend') {
-            withSonarQubeEnv(
-                installationName: 'sonar'
-            ) {
-                withCredentials([
-                    string(
-                        credentialsId: 'token-sonar',
-                        variable: 'SONAR_TOKEN'
-                    )
-                ]) {
-                    sh '''
-                        mvn clean verify sonar:sonar \
-                        -Dsonar.projectKey=EasyCRUD \
-                        -Dsonar.host.url="$SONAR_HOST_URL" \
-                        -Dsonar.token="$SONAR_TOKEN"
-                    '''
-                }
+        stage('SonarQube Analysis'){
+            steps{
+               dir('backend'){
+                  withSonarQubeEnv('sonar'){
+                    sh 'mvn sonar:sonar'
+                  }
+               }
             }
         }
-    }
-}
 
         stage('Quality Gates'){
             steps{
