@@ -56,7 +56,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('Test SonarQube Token') {
     steps {
         dir('backend') {
             withSonarQubeEnv(
@@ -64,9 +64,9 @@ pipeline {
                 credentialsId: 'token-sonar'
             ) {
                 sh '''
-                    SONAR_TOKEN="$SONAR_AUTH_TOKEN" \
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=EasyCRUD
+                    curl -sS \
+                    -u "$SONAR_TOKEN:" \
+                    "$SONAR_HOST_URL/api/authentication/validate"
                 '''
             }
         }
