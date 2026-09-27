@@ -56,19 +56,22 @@ pipeline {
             }
         }
 
-        stage('Test SonarQube Token') {
+        stage('Test Sonar Credential') {
     steps {
-        dir('backend') {
-            withSonarQubeEnv(
-                installationName: 'sonar',
-                credentialsId: 'token-sonar'
-            ) {
-                sh '''
-                    curl -sS \
-                    -u "$SONAR_TOKEN:" \
-                    "$SONAR_HOST_URL/api/authentication/validate"
-                '''
-            }
+        withCredentials([
+            string(
+                credentialsId: 'token-sonar',
+                variable: 'SONAR_TOKEN'
+            )
+        ]) {
+            sh '''
+                if [ -z "$SONAR_TOKEN" ]; then
+                    echo "SONAR_TOKEN is EMPTY"
+                    exit 1
+                else
+                    echo "SONAR_TOKEN is PRESENT"
+                fi
+            '''
         }
     }
 }
