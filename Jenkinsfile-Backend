@@ -57,14 +57,17 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-             steps {
-                dir('backend') {
-                     withSonarQubeEnv(
-                     installationName: 'sonar',
-                     credentialsId: 'token-sonar') 
-                    {
-                        sh 'mvn sonar:sonar -Dsonar.projectKey=EasyCRUD'
-                    }
+    steps {
+        dir('backend') {
+            withSonarQubeEnv(
+                installationName: 'sonar',
+                credentialsId: 'token-sonar'
+            ) {
+                sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=EasyCRUD
+                '''
+            }
         }
     }
 }
